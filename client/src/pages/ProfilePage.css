@@ -1,0 +1,262 @@
+.profile-page {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+}
+
+.profile-page.loading,
+.profile-page.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+.profile-container {
+  grid-column: 1;
+}
+
+/* Profile Header */
+.profile-header {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.profile-photo {
+  flex-shrink: 0;
+}
+
+.profile-photo img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #3b82f6;
+}
+
+.profile-header-info h1 {
+  margin: 0 0 0.5rem;
+  color: #1f2937;
+  font-size: 1.8rem;
+}
+
+.company {
+  margin: 0;
+  color: #6b7280;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.role {
+  margin: 0.25rem 0;
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+
+.location {
+  margin: 0.5rem 0 0;
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+
+.btn-edit {
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-edit:hover {
+  background-color: #1e40af;
+}
+
+/* Profile Content */
+.profile-content {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 2rem;
+}
+
+.profile-section {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.profile-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.profile-section h2 {
+  margin: 0 0 1rem;
+  color: #1f2937;
+  font-size: 1.1rem;
+}
+
+.profile-section p {
+  margin: 0;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.edit-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.edit-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Skills */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.skill-tag {
+  background-color: #f0f9ff;
+  color: #0369a1;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid #7dd3fc;
+}
+
+/* Profile Actions */
+.profile-actions {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.btn-save {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-save:hover {
+  background-color: #059669;
+}
+
+/* Sidebar */
+.profile-sidebar {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebar-card {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+.sidebar-card h3 {
+  margin: 0 0 1rem;
+  color: #1f2937;
+  font-size: 1rem;
+}
+
+.contact-email {
+  margin: 0 0 1rem;
+  word-break: break-all;
+  color: #3b82f6;
+  font-size: 0.9rem;
+}
+
+.sidebar-card p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.btn-message {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-message:hover {
+  background-color: #1e40af;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .profile-page {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-sidebar {
+    grid-column: 1;
+    grid-row: auto;
+    flex-direction: row;
+  }
+
+  .sidebar-card {
+    flex: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-photo img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-sidebar {
+    flex-direction: column;
+  }
+
+  .profile-content,
+  .profile-header {
+    padding: 1.5rem;
+  }
+}
