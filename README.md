@@ -1,222 +1,137 @@
-# RookieRise - Job Matching Platform
+# 🚀 RookieRise
 
-A modern React-based job matching platform that connects entry-level job seekers (rookies) with recruiters. Built with vanilla JavaScript, React Router, and Tailwind CSS.
+RookieRise is a comprehensive, full-stack SaaS job matching platform that connects entry-level job seekers (Rookies) with top-tier recruiters. Built with the MERN stack, the application provides a seamless, real-time experience for job browsing, application tracking, and recruiter-candidate communication.
 
-## Project Overview
+## ✨ Features
 
-RookieRise is a comprehensive job matching platform where:
-- **Rookies** can browse jobs, apply to positions, track applications, and chat with recruiters
-- **Recruiters** can post jobs, review applications, and communicate with candidates
-- Both parties can build profiles, save jobs, and maintain conversations
+### For Rookies (Job Seekers)
+- **Public Job Board:** Browse and search for jobs without needing an account.
+- **Saved Jobs:** Bookmark jobs to apply for them later.
+- **Application Tracking:** Apply directly to jobs and track your application status in real-time.
+- **Real-Time Chat:** Communicate directly with recruiters once an application is initiated.
+- **Notifications:** Get instant updates on application status changes and new messages.
 
-## Tech Stack
+### For Recruiters
+- **Job Management:** Post, edit, and manage job listings with ease.
+- **Applicant Tracking System (ATS):** Review rookie applications, update their statuses (e.g., Shortlisted, Interviewing, Rejected), and manage the hiring pipeline.
+- **Interviews:** Schedule and manage interviews with applicants.
+- **Direct Messaging:** Reach out to applicants seamlessly through the integrated chat system.
 
-- **Frontend**: React 18.2.0
-- **Routing**: React Router v6
-- **Styling**: Tailwind CSS 3.4.1
-- **State Management**: React Context API with custom hooks
-- **Data Storage**: localStorage (mock API)
-- **Real-time Chat**: Socket.io-client (ready for integration)
-- **Language**: Vanilla JavaScript (no TypeScript)
+### Core Platform Features
+- **Authentication & Security:** JWT-based authentication with secure password management.
+- **Modern UI/UX:** Fully responsive design built with Tailwind CSS, featuring subtle animations, premium UI components, and a robust Dark Mode.
+- **Real-Time Engine:** Powered by Socket.io for instantaneous chat and live notifications.
+- **Deployment Ready:** Configured for seamless deployment on Vercel (Frontend) and Render (Backend).
 
-## Project Structure
+## 🛠️ Tech Stack
 
+**Frontend (Client):**
+- React.js
+- React Router DOM
+- Tailwind CSS & shadcn/ui components
+- Context API (State Management)
+- Socket.io-client (Real-time communication)
+- Vercel (Deployment Configuration)
+
+**Backend (Server):**
+- Node.js & Express.js
+- MongoDB & Mongoose (Database)
+- Socket.io (WebSockets)
+- JWT (Authentication)
+- Nodemailer (Email notifications/invitations)
+- Render (Deployment Configuration)
+
+## 📁 Project Structure
+
+```text
+RookieRise/
+├── client/                 # React Frontend
+│   ├── public/             # Static assets
+│   ├── src/
+│   │   ├── components/     # Reusable UI components
+│   │   ├── contexts/       # React Context providers (Auth, Jobs, Chat, etc.)
+│   │   ├── hooks/          # Custom React hooks
+│   │   ├── layouts/        # Page layouts (Main, Dashboard, etc.)
+│   │   ├── pages/          # Application pages
+│   │   └── services/       # API integration services
+│   └── vercel.json         # Vercel deployment configuration
+│
+└── server/                 # Node.js Backend
+    ├── controllers/        # Request handlers
+    ├── middlewares/        # Custom middlewares (Auth, Error handling)
+    ├── models/             # Mongoose database schemas
+    ├── routes/             # API endpoint definitions
+    ├── utils/              # Helper functions (uploadConfig, sendEmail, etc.)
+    └── index.js            # Express server entry point
 ```
-src/
-├── index.js                      # React entry point
-├── App.js                        # Main app with routing
-├── index.css                     # Global styles with Tailwind
-│
-├── layouts/
-│   ├── MainLayout.js            # Main app layout with navbar/footer
-│   └── MainLayout.css
-│
-├── contexts/                     # State management
-│   ├── AuthContext.js           # Authentication state
-│   ├── JobsContext.js           # Jobs listing state
-│   ├── ApplicationsContext.js    # Job applications state
-│   └── ChatContext.js           # Messaging state
-│
-├── services/
-│   └── mockApi.js               # Mock API with localStorage
-│
-├── pages/                        # Page components
-│   ├── HomePage.js              # Landing page
-│   ├── LoginPage.js             # Login page
-│   ├── RegisterPage.js          # Registration page
-│   ├── JobListingPage.js        # Job browsing & search
-│   ├── JobDetailPage.js         # Job details & application
-│   ├── RookieDashboardPage.js   # Rookie dashboard
-│   ├── RecruiterDashboardPage.js # Recruiter dashboard
-│   ├── ChatPage.js              # Messaging interface
-│   ├── ProfilePage.js           # User profiles
-│   └── *.css                    # Page styles
-│
-public/
-├── index.html                   # HTML entry point
-└── favicon files
-```
 
-## Getting Started
+## 🚀 Getting Started
 
-### Installation
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v16+)
+- [MongoDB](https://www.mongodb.com/) (Local instance or MongoDB Atlas)
+- Git
 
-1. Install dependencies:
+### 1. Clone the repository
 ```bash
-npm install
+git clone https://github.com/akashsaxena04/RookieRise.git
+cd RookieRise
 ```
 
-2. Start the development server:
+### 2. Backend Setup
+```bash
+# Navigate to the server directory
+cd server
+
+# Install dependencies
+npm install
+
+# Create a .env file and configure your environment variables
+# Required variables setup:
+# PORT=5000
+# MONGO_URI=your_mongodb_connection_string
+# JWT_SECRET=your_jwt_secret
+# CLIENT_URL=http://localhost:3000
+```
+Start the backend development server:
 ```bash
 npm run dev
 ```
 
-3. The app will open at `http://localhost:3000`
+### 3. Frontend Setup
+Open a new terminal window:
+```bash
+# Navigate to the client directory
+cd client
 
-## Features
+# Install dependencies
+npm install
 
-### Implemented ✅
-- User authentication (Login/Register)
-- Job browsing with filters
-- Job details and application submission
-- User dashboards (Rookie & Recruiter)
-- User profiles with editing
-- Messaging system (mock)
-- Responsive design
-- Mock data in localStorage
-
-### In Development 🚀
-- Advanced job matching algorithm
-- Recruiter job posting interface
-- Interview scheduling
-- Notifications system
-- Advanced search filters
-- User skill recommendations
-
-## Demo Credentials
-
-**Rookie Account:**
-- Email: john@example.com
-- Password: password123
-
-**Recruiter Account:**
-- Email: recruiter@tech.com
-- Password: password123
-
-## Mock Data
-
-The app comes with pre-populated mock data:
-- 3 sample users (1 recruiter, 2 rookies)
-- 3 sample job postings
-- 2 sample applications
-- Sample conversations and messages
-
-All data is stored in localStorage and persists during your session.
-
-## State Management
-
-The app uses React Context API for state management:
-
-- **AuthContext**: Handles user authentication and session
-- **JobsContext**: Manages jobs list and job operations
-- **ApplicationsContext**: Tracks job applications
-- **ChatContext**: Manages conversations and messages
-
-Each context provides custom hooks for easy access:
-```javascript
-const { user, login, logout } = useAuth();
-const { jobs, fetchJobs, applyToJob } = useJobs();
-const { conversations, sendMessage } = useChat();
+# Create a .env file locally pointing to the backend
+# REACT_APP_API_URL=http://localhost:5000/api
+# REACT_APP_SOCKET_URL=http://localhost:5000
 ```
-
-## API Structure
-
-Mock API methods are organized by feature:
-
-```javascript
-// Authentication
-authAPI.login(email, password)
-authAPI.register(userData)
-
-// Jobs
-jobsAPI.getJobs(filters)
-jobsAPI.getJobById(jobId)
-jobsAPI.createJob(jobData)
-
-// Applications
-applicationsAPI.applyToJob(rookieId, jobId, coverLetter)
-applicationsAPI.getApplications(filters)
-applicationsAPI.updateApplicationStatus(appId, status)
-
-// Messages & Chat
-messagesAPI.sendMessage(convId, senderId, text)
-conversationsAPI.getConversations(userId)
-
-// Users & Profiles
-usersAPI.getUserById(userId)
-usersAPI.updateUser(userId, updates)
+Start the React development server:
+```bash
+npm start    # or npm run dev depending on your package.json setup
 ```
+The application will be running at `http://localhost:3000`.
 
-## Customization
+## 🌐 Deployment Details
 
-### Adding Features
+This repository is structured and optimized for production deployment:
+- **Frontend (`/client`):** Ready to be connected to **Vercel**. Single Page Application (SPA) routing is handled properly via the included `vercel.json` file.
+- **Backend (`/server`):** Ready for environments like **Render** or Heroku. Ensure all environment secrets (Database URIs, JWT tokens) are securely added to the platform's Environment Variables dashboard.
 
-1. **New Page**: Create a component in `src/pages/`
-2. **New State**: Create a context in `src/contexts/`
-3. **New API Methods**: Extend `src/services/mockApi.js`
-4. **Styling**: Use Tailwind classes or add CSS files
+## 🤝 Contributing
 
-### Styling
+Contributions are always welcome! 
+1. Fork the project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-- Colors defined in CSS variables (`src/index.css`)
-- Utility classes available in CSS files
-- Tailwind configuration in `tailwind.config.js`
+## 📝 License
 
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## Performance Optimizations
-
-- Code splitting via React Router
-- Component memoization for expensive renders
-- Efficient context updates
-- Lazy loading of pages
-
-## Future Enhancements
-
-- [ ] Backend API integration
-- [ ] Real Socket.io WebSocket implementation
-- [ ] File upload for resumes
-- [ ] Email notifications
-- [ ] Video interview support
-- [ ] Advanced analytics
-- [ ] Mobile app version
-- [ ] Dark mode theme
-
-## Contributing
-
-This is a frontend prototype. Feel free to:
-- Add new features
-- Improve styling
-- Enhance user experience
-- Add more mock data
-- Create new components
-
-## Notes
-
-- This is a **frontend-only prototype** using mock data
-- All data is stored in localStorage and will clear on browser cache clear
-- To connect to a real backend, replace mock API calls in contexts
-- Socket.io client is ready for real-time features when backend is available
-
-## License
-
-MIT
-
----
-
-Built with React, Tailwind CSS, and vanilla JavaScript. Ready for backend integration!
+This project is licensed under the MIT License.
