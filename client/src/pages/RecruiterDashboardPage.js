@@ -36,14 +36,8 @@ function RecruiterDashboardPage() {
            toast.error(result.error || 'Failed to fetch analytics');
         }
       } catch (err) {
-        // Mock data to ensure dashboard renders beautifully even if API endpoint is missing
-        setAnalytics({
-           totalJobs: 12, totalApplicants: 145, shortlisted: 34, offers: 8,
-           applicationsByJob: [
-             { title: 'Frontend Dev', count: 45 }, { title: 'Backend Dev', count: 32 },
-             { title: 'UI Designer', count: 28 }, { title: 'Data Analyst', count: 40 }
-           ]
-        });
+        // Handle error state organically without fake data
+        setAnalytics(null);
       } finally {
         setLoading(false);
       }
@@ -110,7 +104,7 @@ function RecruiterDashboardPage() {
     labels: ['Wk 1', 'Wk 2', 'Wk 3', 'Wk 4'],
     datasets: [{
       label: 'Engagement Rate',
-      data: [65, 78, 90, 85],
+      data: [0, 0, 0, 0],
       borderColor: '#10B981',
       backgroundColor: 'rgba(16, 185, 129, 0.1)',
       fill: true,
@@ -122,9 +116,9 @@ function RecruiterDashboardPage() {
     labels: ['Pending', 'Shortlisted', 'Rejected/Other'],
     datasets: [{
       data: [
-          Math.max(0, stats.totalApplicants - (stats.shortlisted || 0) - (stats.offers || 0) * 2), // dummy logic
+          Math.max(0, stats.totalApplicants - (stats.shortlisted || 0) - (stats.offers || 0)), 
           stats.shortlisted || 0,
-          stats.offers * 2 || 0 
+          stats.offers || 0 
       ],
       backgroundColor: ['#3B82F6', '#10B981', '#F43F5E'],
       borderWidth: 0,

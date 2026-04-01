@@ -29,6 +29,12 @@ app.use(cors({
 }));
 app.use(express.json());
 
+// Pass io to routes via req
+app.use((req, res, next) => {
+    req.io = io;
+    next();
+});
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/jobs', jobRoutes);
@@ -52,11 +58,7 @@ io.on('connection', (socket) => {
     });
 });
 
-// Pass io to routes if deeply needed via app config or export, or attach to req
-app.use((req, res, next) => {
-    req.io = io;
-    next();
-});
+// Socket.io Connection Logic (req.io middleware moved above routes)
 
 // MongoDB Connection
 const PORT = process.env.PORT || 5000;

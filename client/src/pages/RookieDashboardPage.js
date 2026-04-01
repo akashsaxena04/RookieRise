@@ -52,7 +52,7 @@ function RookieDashboardPage() {
     labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     datasets: [{
       label: 'Profile Views',
-      data: [2, 5, 3, 8, 14, 10, 15],
+      data: [0, 0, 0, 0, 0, 0, 0],
       borderColor: '#818CF8',
       backgroundColor: 'rgba(129, 140, 248, 0.2)',
       tension: 0.4,

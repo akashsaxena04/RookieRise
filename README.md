@@ -71,6 +71,7 @@ RookieRise/
 - [Node.js](https://nodejs.org/) (v16+)
 - [MongoDB](https://www.mongodb.com/) (Local instance or MongoDB Atlas)
 - Git
+- [Docker](https://www.docker.com/) & Docker Compose
 
 ### 1. Clone the repository
 ```bash
@@ -78,7 +79,18 @@ git clone https://github.com/akashsaxena04/RookieRise.git
 cd RookieRise
 ```
 
-### 2. Backend Setup
+### 2. Run with Docker (Recommended)
+The easiest way to run the entire stack locally is using Docker. Make sure to configure your root `.env` file first (e.g. `MONGODB_URI`, `JWT_SECRET`, etc.).
+
+```bash
+# Start both client and server containers
+docker-compose up --build
+```
+The application will instantly be accessible at `http://localhost:3000`.
+
+### 3. Manual Setup (Without Docker)
+
+#### Backend Setup
 ```bash
 # Navigate to the server directory
 cd server
@@ -98,7 +110,7 @@ Start the backend development server:
 npm run dev
 ```
 
-### 3. Frontend Setup
+#### Frontend Setup
 Open a new terminal window:
 ```bash
 # Navigate to the client directory
