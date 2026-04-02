@@ -41,6 +41,10 @@ app.use((req, res, next) => {
 });
 
 // Routes
+app.get('/', (req, res) => {
+    res.send('RookieRise API is running...');
+});
+
 app.use('/api/auth', authRoutes);
 app.use('/api/jobs', jobRoutes);
 app.use('/api/applications', applicationRoutes);
